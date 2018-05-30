@@ -10,11 +10,10 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/style/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script scr="./assets/js/burgers.js"></script>
+    <script scr="/assets/js/burgers.js"></script>
 
 
 
-    <script src="main.js"></script>
 
 </head>
 
@@ -22,7 +21,7 @@
     <div class="container">
         <center>
             <!-- change the image src to "./assets/images/giantBurger.jpg" when running the server -->
-            <img id="burgerpic1" src="../public/assets/images/giantBurger.jpg" alt="this is a generic burger picture" style="width:400px">
+            <img id="burgerpic1" src="./assets/images/giantBurger.jpg" alt="this is a generic burger picture" style="width:400px">
         </center>
         <h1>
             <center>Burgers YUMMMMM</center>
@@ -64,24 +63,24 @@
             <!-- <center> -->
             <center>
 
-                <form class="create-form">
+                <form action="/burgers/create" method="POST" class="create-form">
 
                     <div class="form-group">
                         <label for="ca">Hamburger Name:</label>
-                        <input type="text" id="ca" name="name">
+                        <input type="text" id="addABurger" name="name">
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="devoured">Did you eat the burger already?</label>
                         <br>
                         <label class="radio-inline">
                             <input type="radio" id="didYouEat" name="devoured" value="1" checked> Devoured!
                         </label>
                         <!-- <br> -->
-                        <label class="radio-inline">
+                        <!-- <label class="radio-inline">
                             <input type="radio" id="didNotEat" name="devoured" value="0"> available
-                        </label>
-                    </div>
+                        </label> -->
+                    <!-- </div> --> 
 
                     <button type="submit">Add a BIG TASTY</button>
                 </form>

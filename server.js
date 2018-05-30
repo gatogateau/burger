@@ -25,7 +25,7 @@ app.set("view engine", "handlebars");
 // require models for syncing
 
 // Import routes and give the server access to them.
-var routes = require("./controller/apiRoutes.js");
+var routes = require("./controller/controller.js");
 
 app.use(routes);
 

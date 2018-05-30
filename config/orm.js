@@ -7,7 +7,7 @@ var connection = require("../config/connection.js");
 // connect determines the queries
 var orm = {
     allBurgers: function (table, cb) {
-        connection.query("SELECT * FROM table", function (err, res) {
+        connection.query("SELECT * FROM " + table, function (err, res) {
             if (err) {
                 throw err;
             }
@@ -18,11 +18,11 @@ var orm = {
         });
 
     },
-    addBurger: function (table, name, YN, cb) {
+    addBurger: function (table, name, cb) {
         connection.query(
-            "INSERT INTO table SET ?", {
+            "INSERT INTO " + table + " SET ?", {
                 burgerName: name,
-                Devoured: YN
+                Devoured: false
             },
 
             function (err, res) {
@@ -39,7 +39,7 @@ var orm = {
     },
     deleteBurger: function (table, name, cb) {
         console.log("deleting burger");
-        connection.query("DELETE FROM table WHERE ?", {
+        connection.query("DELETE FROM " + table + " WHERE ?", {
                 burgerName: name
             },
             function (err, res) {
@@ -53,11 +53,11 @@ var orm = {
     },
 
     updateBurger: function (table, name, devoured, cb) {
-        console.log("updating table to devoured");
+        console.log("updating " + table + " to " + devoured);
         devoured = parseInt(devoured);
         console.log(typeof (devoured));
         connection.query(
-            "UPDATE table SET ? WHERE ?", [{
+            "UPDATE " + table + "SET ? WHERE ?", [{
                     Devoured: devoured
 
                 },

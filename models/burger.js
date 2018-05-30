@@ -4,28 +4,28 @@ var orm = require("../config/orm.js");
 
 var burger = {
     all: function (cb) {
-        orm.allBurgers("burger", function (res) {
+        orm.allBurgers("burgers", function (res) {
             cb(res);
         });
     },
 
 
-    create: function (name, YN, cb) {
-        orm.addBurger("burger", name, YN, function (res) {
+    create: function (name, cb) {
+        orm.addBurger("burgers", name, function (res) {
             cb(res);
         });
 
     },
 
     update: function (name, devoured, cb) {
-        orm.updateBurger("burger", name, devoured, function (res) {
+        orm.updateBurger("burgers", name, devoured, function (res) {
             cb(res);
         });
 
     },
 
     delete: function (name, cb) {
-        orm.deleteBurger("burger", name, function (res) {
+        orm.deleteBurger("burgers", name, function (res) {
             cb(res);
         });
 
