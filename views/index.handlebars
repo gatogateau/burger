@@ -1,15 +1,18 @@
 <div class="container wholePage">
     <div class="container burgerPic">
-        <div class="row">
+        <div class="row differentRows">
             <div class="col-xs-3 firstMessage">
                 {{!-- can add pic or message --}}
             </div>
             <div class="col-xs-6 centerPic">
-                <center>
+                <div class="container picContainer">
+                {{!-- <center> --}}
                     <!-- change the image src to " ./assets/images/giantBurger.jpg " when running the server -->
-                    <img id="burgerpic1 " src="./assets/images/giantBurger.jpg " alt="this is a generic burger picture
-                " style="width:400px ">
-                </center>
+                    <img id="burgerpic1 " src="./assets/images/giantBurger.jpg " alt="this is a generic burger picture" 
+                    {{!-- style="width:400px" --}}
+                >
+                </div>
+                {{!-- </center> --}}
             </div>
             <div class="col-xs-3 firstMessage">
                 {{!-- can add pic or message --}}
@@ -17,13 +20,13 @@
 
         </div>
         {{!-- Burger Header --}}
-        <div class="row">
+        <div class="row differentRows">
             <div class="col-xs-3 firstMessage">
                 {{!-- can add pic or message --}}
             </div>
             <div class="col-xs-6 message">
 
-                <h1>
+                <h1 id="yummm">
                     <center>Burgers YUMMMMM</center>
                 </h1>
             </div>
@@ -39,9 +42,7 @@
 
 
         <div class="col-xs-4 currentBurgers" id="dbInput0">
-            <h2>
-                <center>current burgers</center>
-            </h2>
+            <h2>current</h2>
             <ul>
                 {{#each burgers}} {{#unless this.devoured}}
                 <li>
@@ -56,21 +57,21 @@
             </ul>
         </div>
 
-        <div class="col-xs-4" id="userInput">
+        <div class="col-xs-4 addMe" id="userInput">
                     <h2>
                 <center>add me</center>
             </h2>
-            <form class="create-form" action="burgers/create" method="POST">
+            <form class="create-form" id="entryBox" action="burgers/create" method="POST">
                 <div class="form-group" id="bugrerPlaceHolder">
-                    <input type="text" id="burger" name="burgerName" placeholder="name your burger">
+                    <input type="text" id="burgerAdd" name="burgerName" placeholder="name your burger">
 
                 </div>
                 <div id="submitButton">
-                    <button type="submit">CREATE</button>
+                    <button id="createBurg" type="submit">CREATE</button>
                 </div>
             </form>
         </div>
-        <div class="col-xs-4" id="dbInput0">
+        <div class="col-xs-4 eaten" id="dbInput0">
             <h2>devoured</h2>
             <ul>
                 {{#each burgers}} {{#if devoured}}
@@ -78,7 +79,7 @@
                     {{this.burgerName}}
                     <form action="burgers/delete/{{this.burgerName}}?_method=DELETE" method="POST">
                         <input type="hidden" name="burgerName" value={{this.burgerName}}>
-                        <button type="submit">Delete this deliciousness</button>
+                        <button id="goneGone" type="submit">Delete this deliciousness</button>
                     </form>
                 </li>
                 {{/if}} {{/each}}
