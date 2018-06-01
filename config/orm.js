@@ -5,6 +5,8 @@ var connection = require("../config/connection.js");
 // var connection = require("./connection.js");
 
 // connect determines the queries
+
+
 var orm = {
     allBurgers: function (table, cb) {
         connection.query("SELECT * FROM " + table, function (err, res) {
@@ -22,7 +24,7 @@ var orm = {
         connection.query(
             "INSERT INTO " + table + " SET ?", {
                 burgerName: name,
-                Devoured: false
+                devoured: false
             },
 
             function (err, res) {
@@ -52,21 +54,21 @@ var orm = {
 
     },
 
-    updateBurger: function (table, name, devoured, cb) {
+    updateBurger: function (table, id, devoured, cb) {
         console.log("updating " + table + " to " + devoured);
-        devoured = parseInt(devoured);
+        // devoured = parseInt(devoured);
         console.log(typeof (devoured));
         connection.query(
-            "UPDATE " + table + "SET ? WHERE ?", [{
-                    Devoured: devoured
+            "UPDATE " + table + " SET ? WHERE ?", [{
+                    devoured: devoured
 
                 },
                 {
-                    burgerName: name
+                    id: id
                 }
             ],
             function (err, res) {
-                console.log(name + " was updated to devour " + devoured);
+                console.log(id + " was updated to devour " + devoured);
                 // console.log(res.affectedRows + " products updated!\n");
                 cb (res)
             }

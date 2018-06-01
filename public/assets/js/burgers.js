@@ -1,6 +1,15 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
 
+// $(document).ready(function() {
+//   $(".eat").on("submit", function(event) {
+//     var id = $(this).data("id");
+//     $.ajax("burgers/update/{{this.id}}")
+//   });
+
+
+
+
 $(function() {
     $(".eatMe").on("click", function(event) {
       var id = $(this).data("id");
@@ -23,7 +32,7 @@ $(function() {
       );
     });
   
-//     $(".create-form").on("submit", function(event) {
+//     $("#create-form").on("submit", function(event) {
 //       // Make sure to preventDefault on a submit event.
 //       event.preventDefault();
 //   alert();
