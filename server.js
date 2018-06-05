@@ -7,7 +7,7 @@ var methodOverride=require("method-override");
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3306;
 
 // initiate methodOverride
 app.use(methodOverride('_method'));
